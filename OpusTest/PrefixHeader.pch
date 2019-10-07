@@ -1,0 +1,31 @@
+//
+//  PrefixHeader.pch
+//  OpusTest
+//
+//  Created by 周全营 on 2019/4/11.
+//  Copyright © 2019 周全营. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+/**
+ * 音频帧大小
+ * 以时间分割而得，在调用的时候必须使用的是恰好的一帧(2.5ms的倍数：2.5，5，10，20，40，60ms)的音频数据。
+ * Fs/ms   2.5     5       10      20      40      60
+ * 16kHz   40      80      160     320     640     960
+ * 48kHz   120     240     480     960     1920    2880
+ */
+#define WB_FRAME_SIZE 960
+
+/**
+ * 采样率 这里录音和解压缩的采样率要一致
+ * 每秒钟采样次数，采样率越高越能表达高频信号的细节内容。
+ * 一般有8K、16K、24K、44.1K、48K。
+ */
+#define kDefaultSampleRate 16000 //采样率
+
+#define MAX_PACKET_BYTES    (WB_FRAME_SIZE * 1 * sizeof(opus_int16))
+
+
+#endif /* PrefixHeader_pch */
